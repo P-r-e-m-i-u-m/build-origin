@@ -1,133 +1,343 @@
-/* Deliberately plain CSS. Easy to read. Easy to change. */
+/*
+  Build Origin / site stylesheet
+
+  Kept intentionally boring in the best way:
+  one file, no framework, no build step, easy to edit.
+*/
 
 :root {
-  --paper: #f4f1e9;
+  --paper: #f2efe7;
   --ink: #171713;
-  --muted: #77746b;
-  --line: #d7d2c5;
+  --muted: #77736a;
+  --line: #d6d1c4;
   --accent: #b84b2c;
-  --max: 1080px;
+  --soft-accent: #e8c9bd;
+  --max: 1120px;
 }
 
+/* ---------- foundation ---------- */
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
-a { color: inherit; }
-.page { width: min(calc(100% - 48px), var(--max)); margin: auto; }
+a {
+  color: inherit;
+}
 
-.nav {
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* A very quiet texture. If you hate it, delete this block. */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .035;
+  z-index: 10;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+.page {
+  width: min(calc(100% - 48px), var(--max));
+  margin: 0 auto;
+}
+
+/* ---------- top bar ---------- */
+
+.topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 0;
+  padding: 27px 0;
   border-bottom: 1px solid var(--line);
-  font: 13px Arial, Helvetica, sans-serif;
+  font: 12px/1 Arial, Helvetica, sans-serif;
 }
-.logo { text-decoration: none; font-weight: 700; letter-spacing: -.5px; }
-.logo span { color: var(--accent); }
-.github { text-decoration: none; color: var(--muted); }
-.github:hover, .text-link:hover { color: var(--accent); }
+
+.wordmark {
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: -.5px;
+}
+
+.wordmark span {
+  color: var(--accent);
+}
+
+.topbar-right {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.topbar-right a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.topbar-right a:hover {
+  color: var(--accent);
+}
+
+.status {
+  color: var(--muted);
+}
+
+.status i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- hero ---------- */
 
 .hero {
-  min-height: 610px;
+  position: relative;
+  min-height: 650px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 850px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
 }
 
-.eyebrow, .small-title {
-  margin: 0 0 20px;
+.hero-copy {
+  padding: 80px 0;
+}
+
+.kicker,
+.section-label {
+  margin: 0 0 22px;
   color: var(--accent);
-  font: 700 11px/1.2 Arial, Helvetica, sans-serif;
-  letter-spacing: 2px;
+  font: 700 10px/1.2 Arial, Helvetica, sans-serif;
+  letter-spacing: 2.4px;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(64px, 10vw, 124px);
-  line-height: .88;
+  font-size: clamp(62px, 9.7vw, 122px);
+  line-height: .86;
   letter-spacing: -6px;
   font-weight: 400;
 }
-h1 em { color: var(--accent); }
 
-.intro {
+h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.lead {
   max-width: 570px;
-  margin: 42px 0 28px;
-  color: #56534b;
+  margin: 40px 0 27px;
+  color: #59564e;
   font-size: 18px;
 }
 
-.actions { display: flex; gap: 24px; align-items: center; }
+.hero-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
 .button {
-  padding: 11px 17px;
+  padding: 12px 17px;
   background: var(--ink);
   color: var(--paper);
   text-decoration: none;
-  font: 700 12px Arial, Helvetica, sans-serif;
+  font: 700 11px Arial, Helvetica, sans-serif;
+  transition: transform .15s ease, background .15s ease;
 }
-.button:hover { background: var(--accent); }
-.text-link { text-decoration: none; font: 700 12px Arial, Helvetica, sans-serif; }
 
-.note {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 25px;
-  padding: 80px 0;
+.button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.quiet-link {
+  text-decoration: none;
+  font: 700 11px Arial, Helvetica, sans-serif;
+}
+
+.quiet-link:hover {
+  color: var(--accent);
+}
+
+.hero-note {
+  align-self: flex-end;
+  width: 145px;
+  margin-bottom: 95px;
+  padding: 17px;
+  border: 1px solid var(--line);
+  transform: rotate(2deg);
+}
+
+.hero-note span {
+  color: var(--accent);
+  font: 10px Arial, Helvetica, sans-serif;
+}
+
+.hero-note p {
+  margin: 28px 0 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- build log ---------- */
+
+.log {
   border-top: 1px solid var(--line);
+}
+
+.section-label {
+  padding-top: 25px;
+}
+
+.log-row {
+  display: grid;
+  grid-template-columns: 55px 1fr 90px;
+  gap: 25px;
+  align-items: start;
+  padding: 30px 0;
   border-bottom: 1px solid var(--line);
 }
-.mark { color: var(--accent); font: 12px Arial, Helvetica, sans-serif; }
-.note h2 {
-  margin: 0 0 15px;
-  font-size: clamp(36px, 5vw, 58px);
+
+.number,
+.year {
+  color: var(--accent);
+  font: 10px Arial, Helvetica, sans-serif;
+}
+
+.year {
+  color: var(--muted);
+  text-align: right;
+}
+
+.log-row h2 {
+  margin: 0 0 6px;
+  font-size: clamp(25px, 3vw, 38px);
   line-height: 1;
   font-weight: 400;
 }
-.note p:not(.small-title) {
-  max-width: 610px;
-  color: #5d5a51;
-  font-size: 17px;
+
+.log-row p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  margin: 70px 0 110px;
-  background: var(--line);
-  border: 1px solid var(--line);
+/* ---------- little closing statement ---------- */
+
+.manifesto {
+  padding: 115px 0 130px;
 }
-.cards article { min-height: 210px; padding: 28px; background: var(--paper); }
-.cards span { color: var(--accent); font: 11px Arial, Helvetica, sans-serif; }
-.cards h3 { margin: 35px 0 8px; font-size: 28px; font-weight: 400; }
-.cards p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.manifesto p {
+  margin: 0;
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: .92;
+  letter-spacing: -3px;
+}
+
+.manifesto p:nth-child(2) {
+  padding-left: 10%;
+  color: var(--accent);
+}
+
+.manifesto p:nth-child(3) {
+  padding-left: 20%;
+}
+
+/* ---------- footer ---------- */
 
 footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 20px;
   padding: 22px 0 35px;
+  border-top: 1px solid var(--line);
   color: var(--muted);
-  font: 11px Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
+  font: 10px Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-@media (max-width: 680px) {
-  .page { width: min(calc(100% - 30px), var(--max)); }
-  .hero { min-height: 530px; }
-  h1 { letter-spacing: -3px; font-size: clamp(56px, 17vw, 90px); }
-  .intro { font-size: 16px; }
-  .note { grid-template-columns: 1fr; padding: 55px 0; }
-  .cards { grid-template-columns: 1fr; margin-bottom: 70px; }
-  footer { gap: 15px; flex-direction: column; }
+footer a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 700px) {
+  .page {
+    width: min(calc(100% - 30px), var(--max));
+  }
+
+  .topbar-right {
+    gap: 12px;
+  }
+
+  .status {
+    display: none;
+  }
+
+  .hero {
+    min-height: 570px;
+  }
+
+  h1 {
+    letter-spacing: -3px;
+    font-size: clamp(55px, 16vw, 88px);
+  }
+
+  .hero-note {
+    display: none;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .log-row {
+    grid-template-columns: 35px 1fr;
+    gap: 15px;
+  }
+
+  .year {
+    display: none;
+  }
+
+  .manifesto {
+    padding: 80px 0 95px;
+  }
+
+  .manifesto p:nth-child(2) {
+    padding-left: 5%;
+  }
+
+  .manifesto p:nth-child(3) {
+    padding-left: 10%;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+  }
 }
