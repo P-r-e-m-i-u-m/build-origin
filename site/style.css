@@ -1,0 +1,133 @@
+/* Deliberately plain CSS. Easy to read. Easy to change. */
+
+:root {
+  --paper: #f4f1e9;
+  --ink: #171713;
+  --muted: #77746b;
+  --line: #d7d2c5;
+  --accent: #b84b2c;
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+a { color: inherit; }
+.page { width: min(calc(100% - 48px), var(--max)); margin: auto; }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  font: 13px Arial, Helvetica, sans-serif;
+}
+.logo { text-decoration: none; font-weight: 700; letter-spacing: -.5px; }
+.logo span { color: var(--accent); }
+.github { text-decoration: none; color: var(--muted); }
+.github:hover, .text-link:hover { color: var(--accent); }
+
+.hero {
+  min-height: 610px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 850px;
+}
+
+.eyebrow, .small-title {
+  margin: 0 0 20px;
+  color: var(--accent);
+  font: 700 11px/1.2 Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(64px, 10vw, 124px);
+  line-height: .88;
+  letter-spacing: -6px;
+  font-weight: 400;
+}
+h1 em { color: var(--accent); }
+
+.intro {
+  max-width: 570px;
+  margin: 42px 0 28px;
+  color: #56534b;
+  font-size: 18px;
+}
+
+.actions { display: flex; gap: 24px; align-items: center; }
+.button {
+  padding: 11px 17px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font: 700 12px Arial, Helvetica, sans-serif;
+}
+.button:hover { background: var(--accent); }
+.text-link { text-decoration: none; font: 700 12px Arial, Helvetica, sans-serif; }
+
+.note {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 25px;
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.mark { color: var(--accent); font: 12px Arial, Helvetica, sans-serif; }
+.note h2 {
+  margin: 0 0 15px;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1;
+  font-weight: 400;
+}
+.note p:not(.small-title) {
+  max-width: 610px;
+  color: #5d5a51;
+  font-size: 17px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 70px 0 110px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.cards article { min-height: 210px; padding: 28px; background: var(--paper); }
+.cards span { color: var(--accent); font: 11px Arial, Helvetica, sans-serif; }
+.cards h3 { margin: 35px 0 8px; font-size: 28px; font-weight: 400; }
+.cards p { margin: 0; color: var(--muted); font-size: 14px; }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 0 35px;
+  color: var(--muted);
+  font: 11px Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 680px) {
+  .page { width: min(calc(100% - 30px), var(--max)); }
+  .hero { min-height: 530px; }
+  h1 { letter-spacing: -3px; font-size: clamp(56px, 17vw, 90px); }
+  .intro { font-size: 16px; }
+  .note { grid-template-columns: 1fr; padding: 55px 0; }
+  .cards { grid-template-columns: 1fr; margin-bottom: 70px; }
+  footer { gap: 15px; flex-direction: column; }
+}
