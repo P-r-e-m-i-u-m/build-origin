@@ -3,103 +3,111 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Build Origin. Where the building started.">
-  <meta name="theme-color" content="#f2efe7">
-  <title>Build Origin</title>
+  <meta name="description" content="Build Origin is a small corner of GitHub for experiments, lessons, and the work behind the finished thing.">
+  <meta name="theme-color" content="#f4f1e8">
+  <title>Build Origin · Built in the open</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!--
-    Build Origin
-    Small site. Plain files. No framework needed.
-    The idea is to make the repo feel like a real place, not a product page.
-  -->
-
-  <div class="grain" aria-hidden="true"></div>
-
-  <main class="page">
-    <!-- top bar -->
+  <!-- Plain HTML and CSS on purpose. Keep this site easy to understand and change. -->
+  <div class="page-shell">
     <header class="topbar">
-      <a class="wordmark" href="/" aria-label="Build Origin home">
-        build<span>_</span>origin
+      <a class="brand" href="#top" aria-label="Build Origin home">
+        <span class="brand-mark" aria-hidden="true">b<span>.</span></span>
+        <span class="brand-name">build origin</span>
       </a>
-
-      <div class="topbar-right">
-        <span class="status"><i></i> building</span>
-        <a href="https://github.com/P-r-e-m-i-u-m/build-origin">github ↗</a>
-      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#story">The story</a>
+        <a href="#log">Build log</a>
+        <a class="nav-github" href="https://github.com/P-r-e-m-i-u-m/build-origin" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
     </header>
 
-    <!-- the first thing people see -->
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="kicker">EST. IN THE MESSY PART</p>
-        <h1>Where the<br><em>building</em> started.</h1>
-        <p class="lead">
-          A small record of experiments, fixes, strange ideas and the work
-          that happened before everything looked finished.
-        </p>
-
-        <div class="hero-links">
-          <a class="button" href="https://github.com/P-r-e-m-i-u-m/build-origin">
-            open repository
-          </a>
-          <a class="quiet-link" href="#log">read the log ↓</a>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> A WORK IN PROGRESS, BY DESIGN</p>
+          <h1 id="hero-title">Good things<br>have <span class="scribble">origins.</span></h1>
+          <p class="hero-lede">This is where the ideas get their hands dirty. A little corner for experiments, lessons, wrong turns, and whatever comes next.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/P-r-e-m-i-u-m/build-origin" target="_blank" rel="noreferrer">Explore the repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#story">Get the idea <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-footnote"><span class="footnote-rule"></span><span>No grand launch. Just the next commit.</span></div>
         </div>
-      </div>
 
-      <!-- intentionally simple: like a little notebook margin -->
-      <div class="hero-note">
-        <span>001</span>
-        <p>still building.<br>still learning.</p>
-      </div>
-    </section>
-
-    <!-- a tiny build log makes the page feel connected to the repository -->
-    <section class="log" id="log">
-      <div class="section-label">BUILD LOG</div>
-
-      <div class="log-row">
-        <span class="number">01</span>
-        <div>
-          <h2>Start before you're ready.</h2>
-          <p>The first version was never supposed to be the final version.</p>
+        <div class="art-panel" aria-label="An abstract illustration of ideas becoming a finished build" role="img">
+          <div class="art-grid"></div>
+          <span class="art-label label-top">FIELD NOTES / 001</span>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="origin-core"><span>BO</span><i></i></div>
+          <div class="note note-one"><span class="note-index">01</span><span>make a start</span></div>
+          <div class="note note-two"><span class="note-index">02</span><span>learn by doing</span></div>
+          <div class="note note-three"><span class="note-index">03</span><span>ship the next</span></div>
+          <span class="art-coordinate">17° 23' N<br>78° 29' E</span>
+          <span class="art-label label-bottom">STILL TAKING SHAPE</span>
         </div>
-        <span class="year">origin</span>
+      </section>
+
+      <div class="ticker" aria-label="Project principles">
+        <span>SMALL STEPS</span><b>✳</b><span>REAL PROGRESS</span><b>✳</b><span>OPEN PROCESS</span><b>✳</b><span>NO FINISHED-PERSON ACT</span>
       </div>
 
-      <div class="log-row">
-        <span class="number">02</span>
-        <div>
-          <h2>Keep the rough edges.</h2>
-          <p>Old commits and small mistakes are part of the story.</p>
+      <section class="story-section" id="story">
+        <div class="section-heading">
+          <p class="eyebrow">01 / THE STORY</p>
+          <h2>Not a showcase.<br><span>A starting point.</span></h2>
         </div>
-        <span class="year">history</span>
-      </div>
-
-      <div class="log-row">
-        <span class="number">03</span>
-        <div>
-          <h2>Make the next one better.</h2>
-          <p>That is pretty much the whole philosophy.</p>
+        <div class="story-copy">
+          <p class="story-intro">Most projects only show you the polished bit. Build Origin keeps a little space for everything that happens before that.</p>
+          <p>It started small. The point is not to pretend every idea works or every commit is clever. The point is to keep making things, learn in public, and leave a trail you can look back on.</p>
+          <a class="underlined-link" href="https://github.com/P-r-e-m-i-u-m/build-origin" target="_blank" rel="noreferrer">See the work behind it <span aria-hidden="true">↗</span></a>
         </div>
-        <span class="year">next</span>
-      </div>
-    </section>
+      </section>
 
-    <!-- three words, because sometimes three words are enough -->
-    <section class="manifesto">
-      <p>build small.</p>
-      <p>break things.</p>
-      <p>keep going.</p>
-    </section>
+      <section class="log-section" id="log">
+        <div class="log-heading">
+          <div><p class="eyebrow">02 / NOTES FROM THE PROCESS</p><h2>The build log<span class="orange-dot">.</span></h2></div>
+          <p>Little reminders for the long way around.</p>
+        </div>
+        <div class="log-grid">
+          <article class="log-card card-orange">
+            <div class="card-top"><span>NOTE 001</span><span aria-hidden="true">↗</span></div>
+            <div class="card-symbol symbol-start" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3>Start before<br>it makes sense.</h3>
+            <p>Clarity can show up after the first step, not always before it.</p>
+          </article>
+          <article class="log-card card-paper">
+            <div class="card-top"><span>NOTE 002</span><span aria-hidden="true">↗</span></div>
+            <div class="card-symbol symbol-keep" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <h3>Keep the<br>rough edges.</h3>
+            <p>The messy version tells you how the better version happened.</p>
+          </article>
+          <article class="log-card card-ink">
+            <div class="card-top"><span>NOTE 003</span><span aria-hidden="true">↗</span></div>
+            <div class="card-symbol symbol-next" aria-hidden="true"><span>→</span></div>
+            <h3>Make the<br>next one better.</h3>
+            <p>No magic formula. Just attention, patience, and another try.</p>
+          </article>
+        </div>
+      </section>
 
-    <footer>
-      <span>Build Origin</span>
-      <span>built one commit at a time.</span>
-      <a href="https://github.com/P-r-e-m-i-u-m/build-origin">source ↗</a>
+      <section class="closing" aria-label="Build Origin philosophy">
+        <p class="eyebrow">THE ONLY PLAN</p>
+        <p class="closing-line">Make a thing.<br>Learn a thing.<br><span>Make it better.</span></p>
+        <a class="button button-light" href="https://github.com/P-r-e-m-i-u-m/build-origin" target="_blank" rel="noreferrer">Come see what’s growing <span aria-hidden="true">↗</span></a>
+        <span class="closing-stamp" aria-hidden="true">IN<br>PROGRESS</span>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="footer-brand" href="#top">build<span>_</span>origin</a>
+      <p>Built in the open. One commit at a time.</p>
+      <a href="https://github.com/P-r-e-m-i-u-m/build-origin" target="_blank" rel="noreferrer">Source on GitHub ↗</a>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
