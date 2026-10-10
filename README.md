@@ -1,57 +1,44 @@
 # Build Origin
 
-> Where the building started.
+> Good things have origins.
 
-This is a small corner of my GitHub where I keep the work that helped me get moving.
+**Build Origin** is a small workbench for experiments, lessons, and the work behind the finished thing.
 
-Not everything here is polished. Some things are experiments, some are fixes, and some are simply proof that I tried, broke something, and came back to it.
+It is not a highlight reel. It is a place to keep the starting points, rough edges, small improvements, and notes that make the next build better.
 
-That's the point.
-
-## Why this repo exists
-
-I wanted one place that shows the actual path behind the projects, not just the finished screenshots.
-
-**Build Origin** is for the messy middle:
-
-- small experiments
-- fixes and refactors
-- early project work
-- things I learned by actually building
-- notes that are worth keeping around
-
-The goal is simple: keep building, keep learning, and leave a useful trail behind.
-
-## What's here
-
-The repository is intentionally lightweight right now.
-
-As the work grows, this repo will grow with it instead of being filled with placeholder folders just to look bigger.
-
-## A note on the history
-
-Some of the earliest commits are rough. That's intentional.
-
-I don't want to erase the starting point just because the later work looks better. The old commits are part of the story.
-
-The clean-up happens forward, not by pretending the beginning never happened.
-
-## Building philosophy
-
-> Start small. Ship something. Learn from the rough edges. Build the next version better.
-
-I care more about useful work than making a repository look perfect on day one.
-
-## Contributing
-
-If you spot something worth improving, feel free to open an issue or pull request.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the simple contribution flow.
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for notable changes to the repository.
+[Visit the website](https://p-r-e-m-i-u-m.github.io/build-origin/) · [Browse the source](https://github.com/P-r-e-m-i-u-m/build-origin)
 
 ---
 
-Built one commit at a time. 🚀
+## What this is
+
+A personal project space built around a simple idea: progress is easier to understand when you leave a trail.
+
+This repository holds the project's website and the notes that give it context. It will grow when there is something worth adding, not just to make the folder look busy.
+
+## The approach
+
+- **Start small.** Make the first version real before trying to make it perfect.
+- **Keep the trail.** Early attempts and old commits are part of the story.
+- **Improve with intent.** Change things because they help, not because the project needs more stuff.
+- **Build in the open.** Leave enough context for someone else to understand what is happening.
+
+## Inside the repo
+
+- `index.html` and `style.css`: the website, built with plain HTML and CSS
+- `favicon.svg`: the site's mark
+- `CHANGELOG.md`: notable changes over time
+- `CONTRIBUTING.md`: how to suggest a useful improvement
+- `.github/`: issue templates
+
+No framework, package install, or build step is needed for the website.
+
+## Make a change
+
+Found something worth improving? Open an issue or send a pull request. Small, focused suggestions are welcome.
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). For notable project changes, see [CHANGELOG.md](CHANGELOG.md).
+
+---
+
+*Built in the open. One commit at a time.*
