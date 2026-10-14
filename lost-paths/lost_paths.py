@@ -133,6 +133,42 @@ def show_record(args):
     print_record(record)
 
 
+def timeline_records(args):
+    """Show experiment history newest first."""
+    records = load_records()
+    records.sort(
+        key=lambda item: str(item.get("created_at", "")),
+        reverse=True,
+    )
+
+    if args.limit is not None:
+        if args.limit < 1:
+            raise SystemExit("--limit must be at least 1.")
+        records = records[:args.limit]
+
+    if not records:
+        print("No experiments to show yet. Add one with the 'add' command.")
+        return
+
+    print("BUILD ORIGIN | EXPERIMENT TIMELINE")
+    print("-" * 36)
+
+    for record in records:
+        created = str(record.get("created_at", "Unknown"))
+        date = created.replace("T", " ").replace("+00:00", " UTC")
+        print(
+            f"{date}  [{record.get('outcome', 'unknown').upper()}]"
+            f"\n  {record.get('id', '?')}  "
+            f"{record.get('title', 'Untitled')}"
+        )
+        reason = str(record.get("reason", "")).strip()
+        if reason:
+            print(f"  {reason}")
+        print()
+
+    print(f"Showing {len(records)} experiment(s).")
+
+
 def search_records(args):
     """Search experiment fields using a case-insensitive query."""
     records = load_records()
@@ -223,6 +259,17 @@ def build_parser():
     )
     detail.add_argument("id", help="Experiment ID to look up")
     detail.set_defaults(func=show_record)
+
+    timeline = commands.add_parser(
+        "timeline",
+        help="Show experiments newest first",
+    )
+    timeline.add_argument(
+        "--limit",
+        type=int,
+        help="Maximum number of experiments to show",
+    )
+    timeline.set_defaults(func=timeline_records)
 
     search = commands.add_parser("search", help="Search experiment history")
     search.add_argument(
